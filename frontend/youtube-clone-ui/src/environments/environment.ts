@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   backendUrl: 'http://localhost:8080/api/videos/',
+  backendUserUrl: 'http://localhost:8080/api/user/',
   authOAuthority: 'https://dev-4zqcpczm.us.auth0.com',
   authOClientId: 'KtOotNHg3rpPJwlAWaQAhkRMTRPeTd5g'
 };

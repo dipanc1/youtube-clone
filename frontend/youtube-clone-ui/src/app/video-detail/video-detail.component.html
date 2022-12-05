@@ -4,14 +4,48 @@
     <div class="mat-title">{{videoTitle}}</div>
     <div fxLayout="row">
       <div fxFlex="50%">
-        <div>24th November 2022</div>
-        <div>{{videoDescription}}</div>
+        <span class="view-count">{{viewCount}} Views</span>
+        <span class="dot"></span>
+        <span class="video-upload-date">24th November 2022</span>
       </div>
-      <div fxFlex="50%">
+      <div fxFlex="50%" fxLayoutAlign="end">
+        <span class="like-dislike-section">
+          <button (click)="likeVideo()" mat-icon-button class="thumbs-up" aria-label="blah bla blah">
+            <mat-icon>thumb_up_off_alt</mat-icon>
+            {{likeCount}}
+          </button>
+          <button (click)="dislikeVideo()" mat-icon-button class="thumbs-down" aria-label="blah bla blah">
+            <mat-icon>thumb_up_off_alt</mat-icon>
+            {{dislikeCount}}
+          </button>
+        </span>
 
       </div>
 
     </div>
+
+    <mat-divider></mat-divider>
+
+    <mat-card-header>
+      <mat-card-title>Jatt Jeona Muad</mat-card-title>
+      <mat-card-subtitle class="subtitles">4.4M Subscribers</mat-card-subtitle>
+      <button *ngIf="showSubscribeButton" class="subscribe-button" mat-raised-button color="accent" (click)="subscribeToUser()">SUBSCRIBE</button>
+      <button *ngIf="showUnsubscribeButton" class="subscribe-button-clicked" (click)="unSubscribeToUser()" mat-raised-button color="accent">UNSUBSCRIBE</button>
+    </mat-card-header>
+    <div class="video-detail-header">{{videoDescription}}</div>
+
+
+    <mat-divider style="padding: 5px 0;"></mat-divider>
+
+    <mat-chip-list>
+      <mat-chip>Jatt</mat-chip>
+      <mat-chip>Jatti</mat-chip>
+    </mat-chip-list>
+
+    <mat-divider></mat-divider>
+
+    <app-comments [videoId]="videoId"></app-comments>
+
   </div>
   <div fxFlex="5%"></div>
   <div fxFlex="30%"></div>

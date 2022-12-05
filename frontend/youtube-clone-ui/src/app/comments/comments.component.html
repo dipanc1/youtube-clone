@@ -1,0 +1,36 @@
+<form [formGroup]="commentsForm" class="example-form">
+  <mat-form-field class="example-full-width">
+    <mat-label>Leave a comment</mat-label>
+    <textarea matInput [formControlName]="'comment'" placeholder="Please share your thoughts..."></textarea>
+  </mat-form-field>
+  <div fxLayout="row">
+    <div fxFlex="60%"></div>
+    <div fxFlex="40%" fxFlexAlign="end">
+      <span>
+        <button mat-button>CANCEL</button>
+      </span>
+      <span>
+        <button type="submit" (click)="postComment()" mat-button color="primary">COMMENT</button>
+      </span>
+    </div>
+  </div>
+</form>
+
+<mat-divider></mat-divider>
+<div class="view-comments">
+  <div fxLayout="row">
+    <div fxFlex="50%">
+      <mat-card-header>
+        <div class="example-header-image" matCardAvatar></div>
+        <a routerLink="" matCardTitle class="comment-author">User</a>
+        <p matCardSubtitle>1 Month Ago</p>
+      </mat-card-header>
+    </div>
+    <div class="delete-comment" fxFlexAlign="end" fxFlex="50%">
+      <button mat-icon-button>
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div>Comment Text</div>
+</div>

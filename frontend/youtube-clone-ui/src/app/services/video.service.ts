@@ -44,4 +44,16 @@ export class VideoService {
     // HTTP Post call to upload the thumbnail
     return this.httpClient.put<VideoDto>(environment.backendUrl, videoMetaData);
   }
+
+  getAllVideos(): Observable<Array<VideoDto>> {
+    return this.httpClient.get<Array<VideoDto>>(environment.backendUrl)
+  }
+
+  likeVideo(videoId: string):Observable<VideoDto> {
+    return this.httpClient.post<VideoDto>(environment.backendUrl + videoId + "/like", null);
+  }
+
+  dislikeVideo(videoId: string):Observable<VideoDto> {
+    return this.httpClient.post<VideoDto>(environment.backendUrl + videoId + "/dislike", null);
+  }
 }
