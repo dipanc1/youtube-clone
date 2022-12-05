@@ -17,7 +17,7 @@
 </form>
 
 <mat-divider></mat-divider>
-<div class="view-comments">
+<div class="view-comments" *ngFor="let comment of commentsDto">
   <div fxLayout="row">
     <div fxFlex="50%">
       <mat-card-header>
@@ -32,5 +32,5 @@
       </button>
     </div>
   </div>
-  <div>Comment Text</div>
+  <div>{{comment.commentText}}</div>
 </div>

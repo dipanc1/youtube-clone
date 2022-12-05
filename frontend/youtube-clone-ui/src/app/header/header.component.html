@@ -4,14 +4,18 @@
 
     <span class="example-spacer"></span>
 
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <button routerLink="/upload-video" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
       <mat-icon>video_call</mat-icon>
     </button>
 
-    <button *ngIf="isAuthenticated; else noAuth" mat-icon-button class="example-icon"
+    <button mat-button [matMenuTriggerFor]="menu" *ngIf="isAuthenticated; else noAuth" mat-icon-button class="example-icon"
       aria-label="Example icon-button with share icon">
       <mat-icon>account_circle</mat-icon>
     </button>
+    <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="logoff()">Logout</button>
+    </mat-menu>
+
 
     <ng-template #noAuth>
       <button (click)="login()" mat-raised-button>Login</button>
