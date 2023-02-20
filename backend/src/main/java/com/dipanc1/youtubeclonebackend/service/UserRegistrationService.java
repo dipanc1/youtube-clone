@@ -1,7 +1,7 @@
 package com.dipanc1.youtubeclonebackend.service;
 
 
-import com.dipanc1.youtubeclonebackend.dto.UserInfoDTO;
+import com.dipanc1.youtubeclonebackend.dto.UserInfoDto;
 import com.dipanc1.youtubeclonebackend.model.User;
 import com.dipanc1.youtubeclonebackend.repository.UserRepository;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -43,19 +43,19 @@ public class UserRegistrationService {
 
             ObjectMapper objectMapper = new ObjectMapper();
             objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-            UserInfoDTO userInfoDTO = objectMapper.readValue(body, UserInfoDTO.class);
+            UserInfoDto userInfoDto = objectMapper.readValue(body, UserInfoDto.class);
 
-            Optional<User> userBySubject = userRepository.findBySub(userInfoDTO.getSub());
+            Optional<User> userBySubject = userRepository.findBySub(userInfoDto.getSub());
 
             if(userBySubject.isPresent()){
                 return userBySubject.get().getId();
             } else{
                 User user = new User();
-                user.setFirstName(userInfoDTO.getGivenName());
-                user.setLastName(userInfoDTO.getFamilyName());
-                user.setFullName(userInfoDTO.getName());
-                user.setEmailAddress(userInfoDTO.getEmail());
-                user.setSub(userInfoDTO.getSub());
+                user.setFirstName(userInfoDto.getGivenName());
+                user.setLastName(userInfoDto.getFamilyName());
+                user.setFullName(userInfoDto.getName());
+                user.setEmailAddress(userInfoDto.getEmail());
+                user.setSub(userInfoDto.getSub());
 
                 return userRepository.save(user).getId();
             }

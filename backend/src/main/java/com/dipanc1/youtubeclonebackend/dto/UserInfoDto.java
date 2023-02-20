@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserInfoDTO {
+public class UserInfoDto {
     private String id;
     @JsonProperty("sub")
     private String sub;

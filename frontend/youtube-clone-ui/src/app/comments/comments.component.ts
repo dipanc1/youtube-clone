@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CommentDto } from '../comment-dto';
-import { CommentsService } from '../comments.service';
+import { CommentsService } from '../services/comments.service';
 import { UserService } from '../services/user.service';
 
 @Component({
